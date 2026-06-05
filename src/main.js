@@ -1,11 +1,36 @@
 import { router } from '@/router/router.js';
 
-// CENTRAL DE NAVEGACIÓN: La única forma de cambiar de página
-export function navigateTo(url) {
-    window.history.pushState({}, '', url); // 1. Cambiamos la URL
-    router();                             // 2. Llamamos al router directamente
+// 1. Definimos la estructura base de la aplicación (Skeleton)
+function AppLayout() {
+    return `
+        <div id="layout" class="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+            <!-- Navbar inyectada dinámicamente -->
+            <header id="header"></header>
+            
+            <!-- Contenido principal -->
+            <main id="main" class="flex-grow container mx-auto px-6 py-10"></main>
+
+            <!-- Footer fijo -->
+            <footer class="py-6 border-t border-gray-100 dark:border-gray-800 text-center">
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">&copy; 2024 StorePro Inventory — Premium Management</p>
+            </footer>
+
+            <!-- Elementos Globales -->
+            <div id="toast-container" class="fixed top-6 right-6 z-50 space-y-3"></div>
+            <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm hidden">
+                <div class="w-12 h-12 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+        </div>
+    `;
 }
 
+// 2. Central de Navegación
+export function navigateTo(url) {
+    window.history.pushState({}, '', url);
+    router();
+}
+
+// 3. Renderizado de Navbar
 export function renderNavbar() {
     const user = JSON.parse(localStorage.getItem('user'));
     const header = document.getElementById('header');
@@ -58,11 +83,13 @@ export function renderNavbar() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Para las flechas de atrás/adelante sí escuchamos el evento real
+// 4. Inicialización
+function init() {
+    // Inyectamos el esqueleto dentro de #app
+    document.getElementById('app').innerHTML = AppLayout();
+
     window.addEventListener('popstate', router);
     
-    // Delegación de clics para enlaces
     document.addEventListener('click', (e) => {
         const link = e.target.closest('[data-link]');
         if (link) {
@@ -72,4 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     router();
-});
+}
+
+document.addEventListener('DOMContentLoaded', init);

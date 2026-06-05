@@ -1,94 +1,105 @@
-# Clothing Store Inventory Management SPA
+# 👕 StorePro - Premium Inventory Management SPA
 
-A modern, high-performance Single Page Application (SPA) for internal inventory management, built with Vanilla JavaScript and professional architecture.
+StorePro is a high-performance Single Page Application (SPA) designed for internal clothing store management. Built with **Vanilla JavaScript (ES6+)** and **Tailwind CSS**, it features a clean, functional architecture perfect for educational purposes and professional benchmarks.
+
+---
+
+## 📑 Table of Contents
+1. [🚀 Features](#-features)
+2. [🛠️ Tech Stack](#️-tech-stack)
+3. [📁 Folder Structure](#-folder-structure)
+4. [🚦 Getting Started](#-getting-started)
+5. [🔑 Demo Credentials](#-demo-credentials)
+6. [📘 Architecture & Design](#-architecture--design)
+7. [🛡️ Security & Optimization](#️-security--optimization)
+
+---
 
 ## 🚀 Features
 
-- **Single Page Application (SPA)**: Custom router using History API for seamless navigation without page reloads.
+- **Dynamic SPA Routing**: Custom-built History API router for instant page transitions.
 - **Role-Based Access Control (RBAC)**:
-  - **Admin**: Full CRUD capabilities on products and global dashboard metrics.
-  - **Seller**: Limited access to assigned products, stock updates, and specific dashboard metrics.
-- **Authentication**: Secure login system with session persistence using `localStorage`.
-- **Advanced Inventory Management**:
-  - Full CRUD for products.
-  - Real-time search by name.
-  - Filters by category, stock status (In stock, Out of stock, Low stock).
+  - **Admin**: Full CRUD capabilities and global metrics.
+  - **Seller**: Restricted access to assigned products and specific dashboard stats.
 - **Modern UI/UX**:
-  - Utility-first styling with **Tailwind CSS**.
-  - **Dark Mode** support with system preference detection and persistence.
-  - **Toast Notifications** for user feedback.
-  - **Global Loader** for API requests.
-  - Responsive design for all devices.
+  - **Dark Mode**: System-aware and persistent.
+  - **Premium Design**: Rounded borders, backdrop blurs, and smooth animations.
+  - **Responsive**: Fully optimized for mobile (Hamburger Menu) and desktop.
+- **Real-time Feedback**: Global loader and animated toast notifications.
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript (ES6 Modules).
-- **Styling**: Tailwind CSS (CDN).
-- **Backend (Mock)**: `json-server`.
-- **Architecture**: Modular class-based components.
+- **Frontend**: HTML5, Vanilla JavaScript (ES6 Modules).
+- **Build Tool**: [Vite](https://vitejs.dev/) for ultra-fast development.
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) (CDN with custom configuration).
+- **Backend**: [json-server](https://github.com/typicode/json-server) (Mock REST API).
 
-## 📁 Project Structure
+## 📁 Folder Structure
 
-```
-src/
-├── api/          # Generic API client and fetch logic
-├── auth/         # Login/Logout and authentication services
-├── router/       # SPA Router with route guards
-├── views/        # Page views (Login, Dashboard, Products)
-├── components/   # Reusable UI components (Navbar, Modal, Base)
-├── services/     # Business logic and store management
-├── utils/        # Utility functions (Notifications, DOM)
-├── styles/       # (Internal Tailwind config and base styles)
-├── guards/       # Route protection logic
-└── main.js       # Application entry point
+```text
+root/
+├── index.html          # Minimal entry point (Shell)
+├── db.json             # Mock database (Users & Products)
+├── vite.config.js      # Path alias (@) and server config
+├── src/
+│   ├── main.js         # App bootstrap & Layout skeleton
+│   ├── api/            # Optimized fetch services (client.js)
+│   ├── router/         # History API router logic
+│   ├── views/          # Functional views (Login, Dashboard, Products)
+│   ├── utils/          # Helpers (Notifications, formatting)
+│   └── services/       # Auth state management
 ```
 
 ## 🚦 Getting Started
 
-### Prerequisites
+### 1. Prerequisites
+- [Node.js](https://nodejs.org/) (v16+)
+- npm
 
-- [Node.js](https://nodejs.org/) (v14 or higher recommended)
-- [npm](https://www.npmjs.com/)
+### 2. Installation
+```bash
+git clone <your-repo-link>
+cd clothing-store
+npm install
+```
 
-### Installation
+### 3. Running the Project
+Open two terminals:
 
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd clothing-store
-   ```
+**Terminal 1 (API):**
+```bash
+npm run api
+```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start the simulated backend (API):
-   ```bash
-   npm run api
-   ```
-
-4. Start the development server (Vite):
-   ```bash
-   npm run dev
-   ```
-
-5. Open your browser at `http://localhost:3000`.
+**Terminal 2 (Vite):**
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🔑 Demo Credentials
 
-- **Admin**: `admin@store.com` / `123456`
-- **Seller**: `seller@store.com` / `123456`
+| Role | Email | Password |
+| :--- | :--- | :--- |
+| **Admin** | `admin@store.com` | `123456` |
+| **Seller** | `seller@store.com` | `123456` |
 
-## 📘 Design Principles
+## 📘 Architecture & Design
 
-- **Vite Power**: Fast development with HMR and optimized builds.
-- **Path Aliases**: Clean imports using the `@` alias for the `src` directory.
-- **Clean Code**: Highly readable and maintainable code following SOLID principles.
-- **Modularity**: Every feature is encapsulated in its own module/service.
-- **Security**: Route guards prevent unauthorized access to restricted views based on role and auth status.
-- **Event Delegation**: Efficient DOM event handling.
+### Functional over Classes
+We use a **Render/Init pattern** for every view. This avoids the complexity of `this` and inheritance, making the code much easier to read:
+1. `render()`: Returns the HTML string.
+2. `init()`: Attaches event listeners and logic.
 
-## 📝 License
+### Dynamic Layout Shell
+The `index.html` is kept ultra-clean. The entire application shell (Header, Main, Footer) is generated dynamically in `main.js` using the `AppLayout` function.
 
-This project is licensed under the MIT License.
+## 🛡️ Security & Optimization
+
+- **API Optimization**: Uses `_expand=user` and native `userId` filtering to reduce data payload and JavaScript processing.
+- **Robust Error Handling**: Every endpoint is wrapped in `try/catch` with centralized HTTP response validation.
+- **Navigation Control**: A centralized `navigateTo` function replaces artificial events, ensuring a predictable application flow.
+
+---
+
+Made with ❤️ by [DANI DOCS]
