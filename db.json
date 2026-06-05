@@ -1,0 +1,199 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Administrador",
+      "email": "admin@store.com",
+      "password": "123456",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "name": "Vendedor",
+      "email": "seller@store.com",
+      "password": "123456",
+      "role": "seller"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Camiseta Básica Blanca",
+      "description": "Camiseta de algodón 100% color blanco.",
+      "category": "Camisetas",
+      "size": "M",
+      "price": 15.99,
+      "stock": 50,
+      "createdAt": "2024-06-01T10:00:00Z",
+      "userId": "2"
+    },
+    {
+      "id": "2",
+      "name": "Pantalón Jean Slim",
+      "description": "Jean azul oscuro corte slim fit.",
+      "category": "Pantalones",
+      "size": "32",
+      "price": 45,
+      "stock": 20,
+      "createdAt": "2024-06-01T11:00:00Z",
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "name": "Chaqueta de Cuero",
+      "description": "Chaqueta sintética estilo biker.",
+      "category": "Chaquetas",
+      "size": "L",
+      "price": 89.99,
+      "stock": 11,
+      "createdAt": "2024-06-02T09:30:00Z",
+      "userId": "2",
+      "user": {
+        "id": "2",
+        "name": "Vendedor",
+        "email": "seller@store.com",
+        "password": "123456",
+        "role": "seller"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Sudadera con Capucha",
+      "description": "Sudadera gris oversize.",
+      "category": "Sudaderas",
+      "size": "XL",
+      "price": 35.5,
+      "stock": 0,
+      "createdAt": "2024-06-02T14:00:00Z",
+      "userId": "2"
+    },
+    {
+      "id": "5",
+      "name": "Vestido Floral",
+      "description": "Vestido corto con estampado de flores.",
+      "category": "Vestidos",
+      "size": "S",
+      "price": 29.99,
+      "stock": 12,
+      "createdAt": "2024-06-03T10:15:00Z",
+      "userId": "1"
+    },
+    {
+      "id": "6",
+      "name": "Zapatos Oxford",
+      "description": "Zapatos de cuero color marrón.",
+      "category": "Calzado",
+      "size": "42",
+      "price": 65,
+      "stock": 8,
+      "createdAt": "2024-06-03T16:45:00Z",
+      "userId": "2"
+    },
+    {
+      "id": "7",
+      "name": "Cinturón de Cuero",
+      "description": "Cinturón negro hebilla metálica.",
+      "category": "Accesorios",
+      "size": "Única",
+      "price": 12,
+      "stock": 100,
+      "createdAt": "2024-06-04T08:00:00Z",
+      "userId": "1"
+    },
+    {
+      "id": "8",
+      "name": "Gorra Deportiva",
+      "description": "Gorra ajustable color negro.",
+      "category": "Accesorios",
+      "size": "Única",
+      "price": 18.5,
+      "stock": 4,
+      "createdAt": "2024-06-04T12:20:00Z",
+      "userId": "2",
+      "user": {
+        "id": "2",
+        "name": "Vendedor",
+        "email": "seller@store.com",
+        "password": "123456",
+        "role": "seller"
+      }
+    },
+    {
+      "id": "9",
+      "name": "Camisa Formal Blanca",
+      "description": "Camisa de vestir para oficina.",
+      "category": "Camisas",
+      "size": "M",
+      "price": 32,
+      "stock": 15,
+      "createdAt": "2024-06-05T09:00:00Z",
+      "userId": "2"
+    },
+    {
+      "id": "10",
+      "name": "Shorts de Baño",
+      "description": "Shorts de secado rápido color azul.",
+      "category": "Pantalones",
+      "size": "L",
+      "price": 22.99,
+      "stock": 0,
+      "createdAt": "2024-06-05T15:30:00Z",
+      "userId": "1"
+    },
+    {
+      "id": "11",
+      "name": "Bufanda de Lana",
+      "description": "Bufanda tejida a mano color gris.",
+      "category": "Accesorios",
+      "size": "Única",
+      "price": 14.99,
+      "stock": 25,
+      "createdAt": "2024-06-06T11:10:00Z",
+      "userId": "2"
+    },
+    {
+      "id": "12",
+      "name": "Blusa de Seda",
+      "description": "Blusa elegante color crema.",
+      "category": "Camisetas",
+      "size": "S",
+      "price": 42.5,
+      "stock": 4,
+      "createdAt": "2024-06-06T14:40:00Z",
+      "userId": "2"
+    },
+    {
+      "id": "13",
+      "name": "Reloj de Pulsera",
+      "description": "Reloj analógico con correa de cuero.",
+      "category": "Accesorios",
+      "size": "Única",
+      "price": 120,
+      "stock": 6,
+      "createdAt": "2024-06-07T10:00:00Z",
+      "userId": "1"
+    },
+    {
+      "id": "14",
+      "name": "Calcetines Pack x3",
+      "description": "Pack de 3 pares de calcetines blancos.",
+      "category": "Accesorios",
+      "size": "M",
+      "price": 9.99,
+      "stock": 60,
+      "createdAt": "2024-06-07T16:00:00Z",
+      "userId": "2"
+    },
+    {
+      "id": "15",
+      "name": "Falda Midi",
+      "description": "Falda plisada color verde oliva.",
+      "category": "Faldas",
+      "size": "M",
+      "price": 38,
+      "stock": 9,
+      "createdAt": "2024-06-08T09:15:00Z",
+      "userId": "1"
+    }
+  ]
+}
